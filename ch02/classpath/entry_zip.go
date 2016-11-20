@@ -43,3 +43,7 @@ func (self *ZipEntry) readClass(className string) ([]byte, Entry, error) {
 
   return nil, nil, errors.New("class not found: " + className)
 }
+
+func (self *ZipEntry) String() string {
+  return self.absPath
+}

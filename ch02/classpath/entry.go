@@ -6,7 +6,7 @@ import "strings"
 const pathListSeparator = string(os.PathListSeparator)
 
 type Entry interface {
-  readClass(className String) ([]byte, Entry, error)
+  readClass(className string) ([]byte, Entry, error)
   String() string
 }
 
@@ -18,7 +18,7 @@ func newEntry(path string) Entry {
     return newWildcardEntry(path)
   }
   if strings.HasSuffix(strings.ToLower(path), ".jar") || strings.HasSuffix(strings.ToLower(path), ".zip") {
-    retunr.newZipEntry(path)
+    return newZipEntry(path)
   }
 
   return newDirEntry(path)

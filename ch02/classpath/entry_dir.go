@@ -7,7 +7,7 @@ type DirEntry struct {
   absDir string
 }
 
-func new DirEntry(path string) *DirEntry {
+func newDirEntry(path string) *DirEntry {
   absDir, err := filepath.Abs(path)
   if err != nil {
     panic(err)
